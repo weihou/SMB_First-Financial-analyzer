@@ -23,7 +23,6 @@ div.label {
 	}
 
 input, select, textarea {font:1em Arial, Helvetica, sans-serif;}
-input, textarea {padding:2px;}
 textarea {vertical-align:top;}
 input[type=checkbox], input[type=radio], input[type=hidden] {border:none; padding:0; margin-right:0.25em;}
 input.checkbox, input.radio, input.hidden, label.checkbox input, label.radio input {border:none; padding:0;}
@@ -31,7 +30,9 @@ h2 {
 	font-size: 18px;
 }
 /* Page Structure */
-
+.buttons {
+  margin-top: 30px;
+}
 
 .page {position:relative; max-width:800px; margin:0 auto; background-color: #fff;}
 #content {
@@ -217,6 +218,7 @@ span.hidden{display:none;}
 .breadcrumb li:last-child:after { border: 0; }
 .question {
   overflow: hidden;
+  margin-top: 20px;
 }
 .question label {
   display: block;
@@ -227,7 +229,6 @@ span.hidden{display:none;}
   display: block;
   width: 60%;
   float: left;
-  clear: none;
 }
 
 #city, #state {
