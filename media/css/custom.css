@@ -229,3 +229,11 @@ span.hidden{display:none;}
   float: left;
   clear: none;
 }
+
+#city, #state {
+  width: 20%;
+  margin-right: 8px;
+}
+#zip {
+  width: 15%;
+}
