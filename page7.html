@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>First Financial Bank | Business Analyzer | Checking Account Options</title>
+	<link rel="stylesheet" href="media/css/style.css">
+    <!--- Google analytics code  --->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6897755-17']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+</head>
+<body>
+	<div class="page" id="page7">
+		<div id="header">
+			<h1 class="hide">First Financial Bank | Business Analyzer</h1>
+		</div>
+		
+		<div id="content">
+			<div class="col first">
+				<h2>Checking Account Options</h2>
+				<form action="" method="post" name="form1" class="text" id="form1">
+					<fieldset class="group">
+						<div class="label"><span id="question18Error" class="error hide">* </span>How many transactions does your business perform each month?</div>
+						<label class="radio">
+							<input type="radio" id="question18Radio1" name="question18" value="1">
+							150 or less 
+						</label>
+						<label class="radio">
+							<input type="radio" id="question18Radio2" name="question18" value="2">
+							151-300
+						</label>
+						<label class="radio">
+							<input type="radio" id="question18Radio3" name="question18" value="3">
+							301-500 
+						</label>
+						<label  class="radio">
+							<input type="radio" id="question18Radio4" name="question18" value="4">
+							501 or more
+						</label>
+					</fieldset>
+					<fieldset class="group">
+						<div class="label"><span id="question19Error" class="error hide">* </span>What is your business's average monthly collected balance?</div>
+						<label class="radio">
+							<input type="radio" id="question19Radio1" name="question19" value="1">
+							 $999 or less 
+						</label>
+						<label class="radio">
+							<input type="radio" id="question19Radio2" name="question19" value="2">
+							 $1,000-$4,999
+						</label>
+						<label class="radio">
+							<input type="radio" id="question19Radio3" name="question19" value="3">
+							 $5,000 or more 
+						</label>
+					</fieldset>
+					<fieldset class="group">
+						<div class="label"><span id="question20Error" class="error hide">* </span>Does your business offer direct deposit to its employees?</div>
+						<label class="radio col">
+							<input type="radio" id="question20Radio1" name="question20" value="1">
+							 Yes
+						</label>
+						<label class="radio col">
+							<input type="radio" id="question20Radio2" name="question20" value="2">
+							 No 
+						</label>
+					</fieldset>
+					<div class="buttons">
+						<input id="nextButton" class="text" type="button" value="Next" name="nextButton">
+					</div>
+				</form>
+			</div>
+			<div class="col last" id="recommendationBox">
+				<h2>Your Recommendation</h2>
+				<div id="recommendation"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div id="footer">
+			<div id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></div>
+		</div>	
+	</div>
+	<script src="media/js/jquery-1.4.2.min.js"></script>
+	<script src="media/js/code.js"></script>
+	<script src="media/data/messages.js"></script>
+	<script>		
+		$(document).ready(function(){
+			pageId = "page7";
+			nextPage = "page2.html";
+			var queryStr = location.search;
+			var pageIndex = 0;
+			
+			initPage(pageIndex);
+			
+			$(':input').change(
+				function(){
+					if ($('input:radio:checked').length >= 3){
+						$("#recommendation").html("");
+						//show product
+						if($("input[name='question18']:checked").val()>4){
+							$('#recommendationBox').removeClass("done");
+						}else {
+							if($("input[name='question18']:checked").val()>=3){
+								selectedProducts = "P17";
+								showProduct(17);							
+							}else if($("input[name='question18']:checked").val()==1){
+								if($("input[name='question19']:checked").val()==3){
+									selectedProducts = "P15P18";
+									showProduct(15);
+									showProduct(18);
+								}else{
+									selectedProducts = "P14P18";
+									showProduct(14);
+									showProduct(18);
+								}
+							}else if($("input[name='question18']:checked").val()==2){
+								if($("input[name='question19']:checked").val()==3){
+									if($("input[name='question20']:checked").val()==1){
+										selectedProducts = "P18";
+										showProduct(18);
+									}else {
+										selectedProducts = "P16P18";
+										showProduct(16);
+										showProduct(18);
+									}
+								}else{
+									selectedProducts = "P14P18";
+									showProduct(14);
+									showProduct(18);
+								}
+							}
+							$('#recommendationBox').addClass("done");
+						}
+						
+
+					}
+				}	
+			);
+			$("#nextButton").click(
+				function (event){
+					event.preventDefault(); 
+					self.location = nextPage + "?" + buildProductsQuery(pageIndex,selectedProducts) + buildAnswersQuery(pageIndex) +  buildRevisitQuery();		
+				}
+			);			
+		});	
+	</script>
+</body>
+</html>

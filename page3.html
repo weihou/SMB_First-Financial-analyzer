@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>First Financial Bank | Business Analyzer | Cash Management</title>
+	<link rel="stylesheet" href="media/css/style.css">
+    <!--- Google analytics code  --->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6897755-17']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+</head>
+<body>
+	<div class="page" id="page3">
+		<div id="header">
+			<h1 class="hide">First Financial Bank | Business Analyzer</h1>
+		</div>
+		
+		<div id="content">
+			<div class="col first">
+				<h2>Cash Management</h2>
+				<form action="" method="post" name="form1" class="text" id="form1">
+					<fieldset class="group">
+						<div class="label"><span id="question7Error" class="error hide">* </span>Does your business frequently accept checks?</div>
+						<label class="radio col">
+							<input type="radio" id="question7Radio1" name="question7" value="9">
+							Yes
+						</label>
+						<label class="radio col">
+							<input type="radio" id="question7Radio2" name="question7" value="-9">
+							No
+						</label>
+					</fieldset>
+					<fieldset class="group">
+						<div class="label"><span id="question8Error" class="error hide">* </span>Are you interested in investing excess funds within your checking account?</div>
+						<label class="radio col">
+							<input type="radio" id="question8Radio1" name="question8" value="10">
+							Yes
+						</label>
+						<label class="radio col">
+							<input type="radio" id="question8Radio2" name="question8" value="-10">
+							No
+						</label>
+					</fieldset>
+					<fieldset class="group">
+						<div class="label"><span id="question9Error" class="error hide">* </span>Does your business need to control access to Online Banking with multiple user IDs?</div>
+						<label class="radio col">
+							<input type="radio" id="question9Radio1" name="question9" value="11">
+							Yes
+						</label>
+						<label class="radio col">
+							<input type="radio" id="question9Radio2" name="question9" value="-11">
+							No
+						</label>
+					</fieldset>
+					<fieldset class="group">
+						<div class="label"><span id="question10Error" class="error hide">* </span>Does your business use wire transfers?</div>
+						<label class="radio col">
+							<input type="radio" id="question10Radio1" name="question10" value="12">
+							Yes
+						</label>
+						<label class="radio col">
+							<input type="radio" id="question10Radio2" name="question10" value="-12">
+							No
+						</label>
+					</fieldset>
+					<fieldset class="group">
+						<div class="label"><span id="question11Error" class="error hide">* </span>Does your business issue 10 or more payroll items per month?</div>
+						<label class="radio col">
+							<input type="radio" id="question11Radio1" name="question11" value="13">
+							Yes
+						</label>
+						<label class="radio col">
+							<input type="radio" id="question11Radio2" name="question11" value="-13">
+							No
+						</label>
+					</fieldset>
+					<fieldset class="group">
+						<div class="label"><span id="question12Error" class="error hide">* </span>Does your business make ACH payments?</div>
+						<label class="radio col">
+							<input type="radio" id="question12Radio1" name="question12" value="13">
+							Yes
+						</label>
+						<label class="radio col">
+							<input type="radio" id="question12Radio2" name="question12" value="-13">
+							No
+						</label>
+					</fieldset>
+					<div class="buttons">
+						<input id="nextButton" class="text" type="button" value="Next" name="nextButton">
+					</div>
+				</form>
+			</div>
+			<div class="col last" id="recommendationBox">
+				<h2>Your Recommendation</h2>
+				<div id="recommendation"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<div id="footer">
+			<div id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></div>
+		</div>	
+	</div>
+	<script src="media/js/jquery-1.4.2.min.js"></script>
+	<script src="media/js/code.js"></script>
+	<script src="media/data/messages.js"></script>
+	<script>		
+		$(document).ready(function(){
+			pageId = "page3";
+			nextPage = "page4.html";
+			var queryStr = location.search;
+			var pageIndex = 2;
+			initPage(pageIndex);
+			
+			$(':input').change(
+				function(){				
+					if ($('input:radio:checked').length >= 6){
+						//show product
+						selectedProducts = "";
+						hideProduct(9);
+						hideProduct(10);
+						hideProduct(11);
+						hideProduct(12);
+						hideProduct(13);
+						$('input:radio:checked').each(function(){
+							if ($(this).val()>=0){
+								showProduct($(this).val());
+								selectedProducts += "P"+$(this).val();
+							}
+						});
+						if (selectedProducts){
+							$('#recommendationBox').addClass("done");
+						}else{
+							$('#recommendationBox').removeClass("done");
+						}
+					}
+
+				}	
+			);
+			$("#nextButton").click(
+				function (event){
+					event.preventDefault(); 
+					self.location = nextPage + "?" + buildProductsQuery(pageIndex,selectedProducts) + buildAnswersQuery(pageIndex) +  buildRevisitQuery();		
+				}
+			);			
+		});	
+	</script>
+	</body>
+</html>
