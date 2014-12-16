@@ -215,3 +215,17 @@ span.hidden{display:none;}
   padding-right: 30px;
 }
 .breadcrumb li:last-child:after { border: 0; }
+.question {
+  overflow: hidden;
+}
+.question label {
+  display: block;
+  width: 30%;
+  float: left;
+}
+.question input {
+  display: block;
+  width: 60%;
+  float: left;
+  clear: none;
+}
