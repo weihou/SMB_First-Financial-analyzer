@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<title>First Financial Bank | Business Analyzer | Savings Account Options</title>
 	<link rel="stylesheet" href="media/css/style.css">
-    <!--- Google analytics code  --->
+	<link rel="stylesheet" href="media/css/custom.css">
+    <!--- Google analytics code  -->
     <script type="text/javascript">
     
       var _gaq = _gaq || [];
@@ -20,44 +21,86 @@
     </script>
 </head>
 <body>
-	<div class="page" id="page2">
+	<div id="main-wrapper">
+		<div class="main" id="page2">
 		<div id="header">
-			<h1 class="hide">First Financial Bank | Business Analyzer</h1>
-		</div>
-		
+      		<a href="/"><h1>First Financial Bank</h1></a>
+      
+			<div id="welcome">
+				<h2>Welcome to the First Financial Business Banking Analyzer</h2>
+				<h4>Get a personalized recommendation to meet your needs</h4>
+			</div>
+	      
+	    </div>
+
+	    <div id="main-nav-holder">
+	    	<ul id="main-nav">
+	    		<li class="top-level business"><h2 id="business-link" class="active png"><a href="/business/" class="png">Business Business Banking</a></h2></li>
+	    		<li class="top-level you"><h2 id="you-link" class="png"><a href="/personal/" class="png">You Personal Banking</a></h2></li>
+	    		<li class="top-level future"><h2 id="future-link" class="png"><a href="/wealth-management/" class="png">Future Wealth Management</a></h2></li>
+	    	</ul>
+	  </div>
+	
 		<div id="content">
-			<div class="col first">
-				<h2>Savings Account Options</h2>
+			<h2 class="title">Checking Account Options</h2>
+			<ul class="breadcrumb">
+				<li class="completed">About Your Business</li>
+				<li class="current">Your Banking Needs And Preferences</li>
+				<li>Your Recommended Solutions </li>
+			</ul>	
+			<div class="center">
 				<form action="" method="post" name="form1" class="text" id="form1">
-					<fieldset class="group">
-						<div class="label"><span id="question5Error" class="error hide">* </span>Does your business need the ability to write checks from its business savings account?</div>
-						<label class="radio col">
-							<input type="radio" id="question5Radio1" name="question5" value="0">
-							Yes
-						</label>
-						<label class="radio col">
-							<input type="radio" id="question5Radio2" name="question5" value="1">
-							No
-						</label>
-					</fieldset>
+					<div class="question">
+						<label for="question20">Annual Revenue</label>
+						<select id="question20">
+							<option value="0">select from the following</option>
+							<option value="1">&lt; $ 1million</option>
+							<option value="2">$1 Million - $10 Million</option>
+							<option value="3">&gt; $10 million</option>
+						</select>
+					</div>
+					<div class="question">
+						<label for="question21"># Number of Employees:</label>
+						<select id="question21">
+							<option value="0">select from the following</option>
+							<option value="1">&lt; 10 FTE</option>
+							<option value="2">10- 100 FTE</option>
+							<option value="3">&gt; 100 FTE</option>
+						</select>
+					</div>
+					<div class="question">
+						<label for="question22">Primary Industry:</label>
+						<select id="question22">
+							<option value="0">select from the following</option>
+							<option value="1">Manufacturing</option>
+							<option value="2">Professional Services</option>
+							<option value="3">Retail </option>
+							<option value="4">Distribution Services </option>
+							<option value="5">Healthcare </option>
+							<option value="6">Non Profit </option>
+							<option value="7">Government </option>
+							<option value="8">Real Estate </option>
+							<option value="9">Other</option>
+							<input type="text" id="question22_1" size="30">
+						</select>
+					</div>
 					
 					<div class="buttons">
 						<input id="nextButton" class="text" type="button" value="Next" name="nextButton">
 					</div>
 				</form>
 			</div>
-			<div class="col last" id="recommendationBox">
-				<h2>Your Recommendation</h2>
-				<div id="recommendation"></div>
 			</div>
-			<div class="clear"></div>
 		</div>
 
 		<div id="footer">
-			<div id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></div>
+      		<div id="footer-top">
+      			<span id="fdic">&nbsp;</span>
+      			<span id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></span>
+      
 		</div>	
 	</div>
-	<script src="media/js/jquery-1.4.2.min.js"></script>
+	<script src="media/js/jquery-2.1.1.min.js"></script>
 	<script src="media/js/code.js"></script>
 	<script src="media/data/messages.js"></script>
 	<script>		
