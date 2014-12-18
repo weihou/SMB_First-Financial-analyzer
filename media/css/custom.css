@@ -43,42 +43,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-#content .col {float:left; margin-right:10px;}
-#content .col.first {width:410px; margin-right:20px;}
-#content .col.last {float:right; width:300px; min-height:400px; margin-right:0;background-repeat:no-repeat;background-position:right top;}
-#content .col.last h2 {display:none !important;}
-#content .col.last.done {text-align:left;} /* was center */
-#content .col.last.done h2 {display:block !important;color:#6a93c6; font-size: 1.25em; margin:15px 20px 15px;}
-
-#page1 #content .col.last{background-image:url(../images/photo1.jpg);}
-#page2 #content .col.last{background-image:url(../images/photo2.jpg);}
-#page3 #content .col.last{background-image:url(../images/photo3.jpg);}
-#page4 #content .col.last{background-image:url(../images/photo4.jpg);}
-#page5 #content .col.last{background-image:url(../images/photo5.jpg);}
-#page6 #content .col.last{background-image:url(../images/photo6.jpg);}
-#page7 #content .col.last{background-image:url(../images/photo7.jpg);}
-
-#page6 div.links{background-color:#ffecad; margin-bottom:10px; padding:5px; text-align:center; font-size:1.25em; font-weight:700; width:500px;}
-
-#page6 div.links a:link {
-	color: #000;
-}
-#page6 div.links a:visited {
-	color: #000;
-}
-#page6 div.links a:hover {
-	color: #000;
-}
-#page6 div.links a:active {
-	color: #000;
-}
-
-#content .col.last.done #recommendation div{
-	padding-left: 25px;
-	padding-right: 20px;
-}
-
-#content .col.last.done{background-image:none !important;background-color:#ffecad; -moz-box-shadow: 5px 5px 5px #888;-webkit-box-shadow: 5px 5px 5px #888;box-shadow: 5px 5px 5px #888;margin-bottom:20px;}
 #header {
   position: relative;
     /* SF Edit old height setting 
@@ -238,4 +202,12 @@ span.hidden{display:none;}
 }
 #zip {
   width: 15%;
+}
+.links {
+
+background-color: #FFECB0;
+text-align: center;
+padding: 10px;
+font-weight: bold;
+
 }

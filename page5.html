@@ -2,9 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>First Financial Bank | Business Analyzer | Credit and Loan Solutions</title>
+	<title>First Financial Bank | Business Analyzer | Savings Account Options</title>
 	<link rel="stylesheet" href="media/css/style.css">
-    <!--- Google analytics code  --->
+	<link rel="stylesheet" href="media/css/custom.css">
+    <!--- Google analytics code  -->
     <script type="text/javascript">
     
       var _gaq = _gaq || [];
@@ -20,128 +21,85 @@
     </script>
 </head>
 <body>
-	<div class="page" id="page5">
-		<div id="header">
-			<h1 class="hide">First Financial Bank | Business Analyzer</h1>
-		</div>
+	<div id="main-wrapper">
+		<div class="main" id="page5">
+			<div id="header">
+	      		<a href="/"><h1>First Financial Bank</h1></a>
+	      
+				<div id="welcome">
+					<h2>Welcome to the First Financial Business Banking Analyzer</h2>
+					<h4>Get a personalized recommendation to meet your needs</h4>
+				</div>
+		      
+		    </div>
+
+		    <div id="main-nav-holder">
+		    	<ul id="main-nav">
+		    		<li class="top-level business"><h2 id="business-link" class="active png"><a href="/business/" class="png">Business Business Banking</a></h2></li>
+		    		<li class="top-level you"><h2 id="you-link" class="png"><a href="/personal/" class="png">You Personal Banking</a></h2></li>
+		    		<li class="top-level future"><h2 id="future-link" class="png"><a href="/wealth-management/" class="png">Future Wealth Management</a></h2></li>
+		    	</ul>
+		  </div>
 		
-		<div id="content">
-			<div class="col first">
-				<h2>Credit and Loan Solutions</h2>
-				<form action="" method="post" name="form1" class="text" id="form1">
-					<fieldset class="group">
-						<div class="label"><span id="question14Error" class="error hide">* </span>Does your business need a credit card?</div>
-						<label class="radio col">
-							<input type="radio" id="question14Radio1" name="question14" value="5">
-							Yes
-						</label>
-						<label class="radio col">
-							<input type="radio" id="question14Radio2" name="question14" value="-5">
-							No
-						</label>
-					</fieldset>
-					<fieldset class="group">
-						<div class="label"><span id="question15Error" class="error hide">* </span>Does your business have cash flow needs?</div>
-						<label class="radio col">
-							<input type="radio" id="question15Radio1" name="question15" value="6">
-							Yes
-						</label>
-						<label class="radio col">
-							<input type="radio" id="question15Radio2" name="question15" value="-6">
-							No
-						</label>
-					</fieldset>
-					<fieldset class="group">
-						<div class="label"><span id="question16Error" class="error hide">* </span>Does your business need funds for a major purchase or to refinance a term loan?</div>
-						<label class="radio col">
-							<input type="radio" id="question16Radio1" name="question16" value="7">
-							Yes
-						</label>
-						<label class="radio col">
-							<input type="radio" id="question16Radio2" name="question16" value="-7">
-							No
-						</label>
-					</fieldset>
-					<fieldset class="group">
-						<div class="label"><span id="question17Error" class="error hide">* </span>Does your business need a loan to make a real estate acquisition or to refinance a real estate backed loan?</div>
-						<label class="radio col">
-							<input type="radio" id="question17Radio1" name="question17" value="8">
-							Yes
-						</label>
-						<label class="radio col">
-							<input type="radio" id="question17Radio2" name="question17" value="-8">
-							No
-						</label>
-					</fieldset>
-					<div class="buttons">
-						<input id="nextButton" class="text" type="button" value="Next" name="nextButton">
+			<div id="content">
+				<h2 class="title">Your Recommended Solutions</h2>
+				<ul class="breadcrumb">
+					<li class="completed">About Your Business</li>
+					<li class="completed">Your Banking Needs And Preferences</li>
+					<li class="current">Your Recommended Solutions</li>
+				</ul>	
+				<div class="center">
+					<div class="links">                         
+						<p><a href="createpdf.cfm" id="printresult" onclick="_gaq.push(['_trackEvent', 'Business Analyzer', 'clicked','PrintRecommendations']);">Print your results</a></p>
+								
+						<p><a href="emailpdf.cfm" id="emailresult" onclick="_gaq.push(['_trackEvent', 'Business Analyzer', 'clicked','Email Results']);">E-mail your results to a Business Banker</a></p>
+						<p><a href="http://www.bankatfirst.com/media/22490/business_switch_kit_web_final.pdf" onclick="_gaq.push(['_trackEvent', 'Business Analyzer', 'clicked','Switch to FirstKit']);" target="_blank">Get started with the Switch to First Kit for Business Accounts</a></p>
+						<a href="http://www.bankatfirst.com/locations" onclick="_gaq.push(['_trackEvent', 'Business Analyzer', 'clicked','Find Bank location']);" target="_blank">Find a First Financial Bank location near you</a><p></p>
 					</div>
-				</form>
+					<div id="recommendation"></div>
+				</div>
 			</div>
-			<div class="col last" id="recommendationBox">
-				<h2>Your Recommendation</h2>
-				<div id="recommendation"></div>
-			</div>
-			<div class="clear"></div>
 		</div>
 
 		<div id="footer">
-			<div id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></div>
+      		<div id="footer-top">
+      			<span id="fdic">&nbsp;</span>
+      			<span id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></span>
 		</div>	
 	</div>
-	<script src="media/js/jquery-1.4.2.min.js"></script>
+	<script src="media/js/jquery-2.1.1.min.js"></script>
 	<script src="media/js/code.js"></script>
 	<script src="media/data/messages.js"></script>
 	<script>		
 		$(document).ready(function(){
 			pageId = "page5";
-			//var nextPage = "page3.html"+location.search+"&";
-			nextPage = "page6.html";
-			var pageIndex = 4;
-			initPage(pageIndex);
-			
+			parseProducts();
+			for (var i= 0; i <productsByPage.length; i++){
+				var productsOfPage = productsByPage[i].split("P");
+				showPageTitle(productsOfPage[1]);
+				$.each(productsOfPage, function() {
+						showProduct(this);
+					});	
+			}	
+			$("#email_content").val($("#recommendation").html());
 			
 			//handle radio button
-			$(':input').change(
-				function(){
-					/*selectedProducts = "";
-					$('input:radio:checked').each(function(){
-						showProduct($(this).val());
-						if ($(this).val()>=0){						
-							selectedProducts += "P"+$(this).val();
-							$('#recommendationBox').addClass("done");
-						}
-					})
-				}	*/
-					if ($('input:radio:checked').length >= 4){
-						//show product
-						selectedProducts = "";
-						hideProduct(5);
-						hideProduct(6);
-						hideProduct(7);
-						hideProduct(8);
-						$('input:radio:checked').each(function(){
-							if ($(this).val()>=0){
-								showProduct($(this).val());
-								selectedProducts += "P"+$(this).val();
-							}
-						});
-						if (selectedProducts){
-							$('#recommendationBox').addClass("done");
-						}else{
-							$('#recommendationBox').removeClass("done");
-						}
-					}
-					
-				}				
-			);
-			$("#nextButton").click(
-				function (event){
+			$("#printresult").click(
+				function(event){
 					event.preventDefault(); 
-					self.location = nextPage + "?" + buildProductsQuery(pageIndex,selectedProducts) + buildAnswersQuery(pageIndex) +  buildRevisitQuery() +"page6.html";		
-				}
-			);			
-		});	
+					var queryStr = window.location.search;
+					window.open('createpdf.cfm'+queryStr);					
+				}	
+			);
+			
+			$("#emailresult").click(
+				function(event){
+					event.preventDefault(); 
+					var queryStr = window.location.search;
+					window.open('emailpdf.cfm'+queryStr,'sendpdf',"width=450,height=450");					
+				}	
+			);
+		});		
 	</script>
-</body>
+	</body>
 </html>

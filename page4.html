@@ -2,9 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>First Financial Bank | Business Analyzer | Merchant Services</title>
+	<title>First Financial Bank | Business Analyzer | Savings Account Options</title>
 	<link rel="stylesheet" href="media/css/style.css">
-    <!--- Google analytics code  --->
+	<link rel="stylesheet" href="media/css/custom.css">
+    <!--- Google analytics code  -->
     <script type="text/javascript">
     
       var _gaq = _gaq || [];
@@ -20,48 +21,66 @@
     </script>
 </head>
 <body>
-	<div class="page" id="page4">
+	<div id="main-wrapper">
+		<div class="main" id="page4">
 		<div id="header">
-			<h1 class="hide">First Financial Bank | Business Analyzer</h1>
-		</div>
-		
+      		<a href="/"><h1>First Financial Bank</h1></a>
+      
+			<div id="welcome">
+				<h2>Welcome to the First Financial Business Banking Analyzer</h2>
+				<h4>Get a personalized recommendation to meet your needs</h4>
+			</div>
+	      
+	    </div>
+
+	    <div id="main-nav-holder">
+	    	<ul id="main-nav">
+	    		<li class="top-level business"><h2 id="business-link" class="active png"><a href="/business/" class="png">Business Business Banking</a></h2></li>
+	    		<li class="top-level you"><h2 id="you-link" class="png"><a href="/personal/" class="png">You Personal Banking</a></h2></li>
+	    		<li class="top-level future"><h2 id="future-link" class="png"><a href="/wealth-management/" class="png">Future Wealth Management</a></h2></li>
+	    	</ul>
+	  </div>
+	
 		<div id="content">
-			<div class="col first">
-				<h2>Merchant Services</h2>
+			<h2 class="title">Checking Account Options</h2>
+			<ul class="breadcrumb">
+				<li class="completed">About Your Business</li>
+				<li class="current">Your Banking Needs And Preferences</li>
+				<li>Your Recommended Solutions </li>
+			</ul>	
+			<div class="center">
 				<form action="" method="post" name="form1" class="text" id="form1">
-					<fieldset class="group">
-						<div class="label"><span id="question13Error" class="error hide">* </span>Does your business accept credit card payments?</div>
-						<label class="radio">
-							<input type="radio" id="question13Radio1" name="question13" value="4">
-							Yes
-						</label>
-						<input type="radio" id="question13Radio2" name="question13" value="4" style="float:left;">
-						<label class="radio" for="question13Radio2" style="float:left; width:370px;padding-left:4px;">							
-							Not currently, but we are interested in accepting credit card payments
-						</label>
-						<label class="radio" style="clear:both;">
-							<input type="radio" id="question13Radio3" name="question13" value="-4">
-							No
-						</label>
-					</fieldset>
+					<div class="question">
+						<div class="label">Do you currently finance or borrow for any of the following business activities? (Check all that apply)</div>
+						<label><input type="checkbox" name="question6" value="1"> Working Capital</label>
+  						<label><input type="checkbox" name="question6" value="2"> Real Estate/Building</label>
+  						<label><input type="checkbox" name="question6" value="3"> Equipment/Vehicle</label>
+  						<label><input type="checkbox" name="question6" value="4"> Debt Restructure</label>
+  						<label><input type="checkbox" name="question6" value="5"> Business Acquisition </label>
+					</div>
+					<div class="question">
+						<div class="label">Tell Us More</div>
+						<label>If you would like a Business Banking Specialist associate to contact you  and have additional information and/or have questions for us, please use the space provided to allow help our associates to be better prepared to service serve you: Anything we missed? Use this space to share any additional thoughts, special circumstances or questions:</label>
+  						<textarea rows="4" cols="80">
+						</textarea>
+					</div>
 					
 					<div class="buttons">
 						<input id="nextButton" class="text" type="button" value="Next" name="nextButton">
 					</div>
 				</form>
 			</div>
-			<div class="col last" id="recommendationBox">
-				<h2>Your Recommendation</h2>
-				<div id="recommendation"></div>
 			</div>
-			<div class="clear"></div>
 		</div>
 
 		<div id="footer">
-			<div id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></div>
+      		<div id="footer-top">
+      			<span id="fdic">&nbsp;</span>
+      			<span id="links">877-322-9530 | <a href="http://www.bankatfirst.com/locations/" target="_blank">locations</a> | <a href="http://www.bankatfirst.com/personal/spending-account-options/switch-to-first/" target="_blank">switch to first financial bank</a></span>
+      
 		</div>	
 	</div>
-	<script src="media/js/jquery-1.4.2.min.js"></script>
+	<script src="media/js/jquery-2.1.1.min.js"></script>
 	<script src="media/js/code.js"></script>
 	<script src="media/data/messages.js"></script>
 	<script>		
@@ -69,7 +88,9 @@
 			pageId = "page4";
 			//var nextPage = "page3.html"+location.search+"&";
 			nextPage = "page5.html";
-			var pageIndex = 3;
+			var queryStr = "?products=";
+			
+			var pageIndex = 1;
 			initPage(pageIndex);
 			
 			//disable the next button
@@ -77,14 +98,17 @@
 			//handle radio button
 			$(':input').change(
 				function(){
-					showProduct($('input:radio:checked').val());
-					if ($('input:radio:checked').val()>=0){						
-						selectedProducts = "P"+$('input:radio:checked').val();
-						$('#recommendationBox').addClass("done");
+					//queryStr = buildQuery(["question5"]);
+					if ($('input:radio[name=question5]:checked').val()==0){					
+						showProduct(0);
+						hideProduct(1);
+						selectedProducts = "P0";
 					}else{
-						selectedProducts = "";
-						$('#recommendationBox').removeClass("done");
+						showProduct(1);
+						hideProduct(0);
+						selectedProducts = "P1";
 					}
+					$('#recommendationBox').addClass("done");
 				}	
 			);
 			$("#nextButton").click(
