@@ -47,22 +47,6 @@ function clickDisabledNext(){
 	alert("You have to answer all questions.");
 }
 
-/*products=p1p2:p3::&answers=a1a2:a3:&resultPage=page6.htm*/
-function initPage(pageIndex) {
-	$("#recommendation").html("");
-	$('#recommendationBox').removeClass("done");
-	parseProducts();
-	parseAnswers();
-	if (getParameterByName("resultPage")){
-		nextPage =getParameterByName("resultPage");
-		/*show selected Products*/
-		showProducts(pageIndex);
-		
-		/*show selected Answers*/
-		showAnswers(pageIndex);
-	}
-
-}
 function getParameterByName(name) {
 
     var match = RegExp('[?&]' + name + '=([^&]*)')
@@ -80,28 +64,14 @@ function buildRevisitQuery() {
 	return returnStr;
 }
 function buildProductsQuery(pageIndex, productsOfCurrentPage) {
-	var returnStr = "products=";
+	var returnStr = "";
 	
 	if (productsOfCurrentPage){
 	}else{
 		productsOfCurrentPage = "";
 	}
 	
-	if (productsByPage){
-		if (productsByPage.length >pageIndex){
-			productsByPage[pageIndex] = productsOfCurrentPage; 
-			for (var i= 0; i <productsByPage.length; i++){
-				returnStr += productsByPage[i]+":";
-			}		
-		}else{
-			for (var i= 0; i <productsByPage.length; i++){
-				returnStr += productsByPage[i]+":";
-			}		
-			returnStr += productsOfCurrentPage+":";
-		}
-	}else{
-		returnStr += productsOfCurrentPage+":";
-	}
+	returnStr += productsOfCurrentPage+":";
 
 	return returnStr;
 
@@ -132,10 +102,12 @@ function buildAnswersQuery(pageIndex) {
 }
 
 function parseProducts() {
-	var productsSelected = getParameterByName("products");
+	var productsArr = [], 
+		productsSelected = getParameterByName("products");
 	if (productsSelected){
-		productsByPage = productsSelected.split(":");
+		productsArr = productsSelected.split(":");
 	}
+	return productsArr;
 }
 
 function parseAnswers() {

@@ -49,20 +49,20 @@
 				<li>Your Recommended Solutions </li>
 			</ul>	
 			<div class="center">
-				<form action="" method="post" name="form1" class="text" id="form1">
+				<form action="">
 					<div class="question">
 						<div class="label">How do you receive payment for your services?  (Check all that apply)</div>
-						<label><input type="checkbox" name="question4" value="1"> Cash</label>
-  						<label><input type="checkbox" name="question4" value="2"> Check</label>
-  						<label><input type="checkbox" name="question4" value="3"> Credit or Debit Card</label>
-  						<label><input type="checkbox" name="question4" value="4"> Electronic Payment</label>
+						<label><input type="checkbox" name="question4" value="P2:P3"> Cash</label>
+  						<label><input type="checkbox" name="question4" value="P4:P5"> Check</label>
+  						<label><input type="checkbox" name="question4" value="P6"> Credit or Debit Card</label>
+  						<label><input type="checkbox" name="question4" value="P7"> Electronic Payment</label>
 					</div>
 					<div class="question">
 						<div class="label">How do you pay your vendors or suppliers? (Check all that apply)</div>
-						<label><input type="checkbox" name="question5" value="1"> Cash</label>
-  						<label><input type="checkbox" name="question5" value="2"> Check</label>
-  						<label><input type="checkbox" name="question5" value="3"> Credit or Debit Card</label>
-  						<label><input type="checkbox" name="question5" value="4"> Electronic Payment</label>
+						<label><input type="checkbox" name="question5" value=""> Cash</label>
+  						<label><input type="checkbox" name="question5" value="P8:P9:P10"> Check</label>
+  						<label><input type="checkbox" name="question5" value="P11"> Credit or Debit Card</label>
+  						<label><input type="checkbox" name="question5" value="P12:P13"> Electronic Payment</label>
 					</div>
 					
 					<div class="buttons">
@@ -81,40 +81,25 @@
 		</div>	
 	</div>
 	<script src="media/js/jquery-2.1.1.min.js"></script>
-	<script src="media/js/code.js"></script>
 	<script src="media/data/messages.js"></script>
 	<script>		
 		$(document).ready(function(){
-			pageId = "page3";
-			//var nextPage = "page3.html"+location.search+"&";
-			nextPage = "page4.html";
-			var queryStr = "?products=";
+			var pageId = "page3";
+			var nextPage = "page4.html"+location.search;
 			
-			var pageIndex = 1;
-			initPage(pageIndex);
-			
-			//disable the next button
-			
-			//handle radio button
-			$(':input').change(
-				function(){
-					//queryStr = buildQuery(["question5"]);
-					if ($('input:radio[name=question5]:checked').val()==0){					
-						showProduct(0);
-						hideProduct(1);
-						selectedProducts = "P0";
-					}else{
-						showProduct(1);
-						hideProduct(0);
-						selectedProducts = "P1";
-					}
-					$('#recommendationBox').addClass("done");
-				}	
-			);
 			$("#nextButton").click(
 				function (event){
-					event.preventDefault(); 
-					self.location = nextPage + "?" + buildProductsQuery(pageIndex,selectedProducts) + buildAnswersQuery(pageIndex) +  buildRevisitQuery();		
+					event.preventDefault();
+					var chkArray = [];
+					var selectedProducts ='';
+					$("input:checked").each(function() {
+						if ($(this).val()) {
+							chkArray.push($(this).val());
+						}
+						
+					});
+					selectedProducts =chkArray.join(':') + ":";
+					self.location = nextPage + selectedProducts;		
 				}
 			);			
 		});	

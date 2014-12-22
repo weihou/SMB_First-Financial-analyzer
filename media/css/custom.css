@@ -121,6 +121,9 @@ p.notes {margin-top:2em;text-align:center;font-size:0.9em;}
 span.error{color:red;}
 span.hidden{display:none;}
 .product{position:relative;}
+.product h3 {
+  font-weight: bold;
+}
 .products_header span.link {margin-left:20px}
 
 .breadcrumb { 

@@ -52,11 +52,11 @@
 				<form action="" method="post" name="form1" class="text" id="form1">
 					<div class="question">
 						<div class="label">Do you currently finance or borrow for any of the following business activities? (Check all that apply)</div>
-						<label><input type="checkbox" name="question6" value="1"> Working Capital</label>
-  						<label><input type="checkbox" name="question6" value="2"> Real Estate/Building</label>
-  						<label><input type="checkbox" name="question6" value="3"> Equipment/Vehicle</label>
-  						<label><input type="checkbox" name="question6" value="4"> Debt Restructure</label>
-  						<label><input type="checkbox" name="question6" value="5"> Business Acquisition </label>
+						<label><input type="checkbox" name="question6" value="P13:P14"> Working Capital</label>
+  						<label><input type="checkbox" name="question6" value="P13:P15"> Real Estate/Building</label>
+  						<label><input type="checkbox" name="question6" value="P13:P16:P17"> Equipment/Vehicle</label>
+  						<label><input type="checkbox" name="question6" value="P13"> Debt Restructure</label>
+  						<label><input type="checkbox" name="question6" value="P13"> Business Acquisition </label>
 					</div>
 					<div class="question">
 						<div class="label">Tell Us More</div>
@@ -81,40 +81,25 @@
 		</div>	
 	</div>
 	<script src="media/js/jquery-2.1.1.min.js"></script>
-	<script src="media/js/code.js"></script>
 	<script src="media/data/messages.js"></script>
 	<script>		
 		$(document).ready(function(){
 			pageId = "page4";
-			//var nextPage = "page3.html"+location.search+"&";
-			nextPage = "page5.html";
-			var queryStr = "?products=";
+			nextPage = "page5.html" +location.search;
 			
-			var pageIndex = 1;
-			initPage(pageIndex);
-			
-			//disable the next button
-			
-			//handle radio button
-			$(':input').change(
-				function(){
-					//queryStr = buildQuery(["question5"]);
-					if ($('input:radio[name=question5]:checked').val()==0){					
-						showProduct(0);
-						hideProduct(1);
-						selectedProducts = "P0";
-					}else{
-						showProduct(1);
-						hideProduct(0);
-						selectedProducts = "P1";
-					}
-					$('#recommendationBox').addClass("done");
-				}	
-			);
 			$("#nextButton").click(
 				function (event){
-					event.preventDefault(); 
-					self.location = nextPage + "?" + buildProductsQuery(pageIndex,selectedProducts) + buildAnswersQuery(pageIndex) +  buildRevisitQuery();		
+					event.preventDefault();
+					var chkArray = [];
+					var selectedProducts ='';
+					$("input:checked").each(function() {
+						if ($(this).val()) {
+							chkArray.push($(this).val());
+						}
+						
+					});
+					selectedProducts =chkArray.join(':');
+					self.location = nextPage + selectedProducts;		
 				}
 			);			
 		});	

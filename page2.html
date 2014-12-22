@@ -53,10 +53,11 @@
 					<div class="question">
 						<label for="question1">Annual Revenue</label>
 						<select id="question1">
-							<option value="0">select from the following</option>
-							<option value="1">&lt; $ 1million</option>
-							<option value="2">$1 Million - $10 Million</option>
-							<option value="3">&gt; $10 million</option>
+							<option value="">select from the following</option>
+							<option value="P0">&lt; $ 1million</option>
+							<option value="P0">>$1 Million - &lt; $5 Million</option>
+							<option value="P1">>$5 Million - $10 Million</option>
+							<option value="P1">&gt; $10 million</option>
 						</select>
 					</div>
 					<div class="question">
@@ -64,7 +65,7 @@
 						<select id="question2">
 							<option value="0">select from the following</option>
 							<option value="1">&lt; 10 FTE</option>
-							<option value="2">10- 100 FTE</option>
+							<option value="2">10 - 100 FTE</option>
 							<option value="3">&gt; 100 FTE</option>
 						</select>
 					</div>
@@ -101,40 +102,29 @@
 		</div>	
 	</div>
 	<script src="media/js/jquery-2.1.1.min.js"></script>
-	<script src="media/js/code.js"></script>
 	<script src="media/data/messages.js"></script>
 	<script>		
 		$(document).ready(function(){
-			pageId = "page2";
+			var pageId = "page2";
 			//var nextPage = "page3.html"+location.search+"&";
-			nextPage = "page3.html";
-			var queryStr = "?products=";
+			var nextPage = "page3.html";
 			
 			var pageIndex = 1;
-			initPage(pageIndex);
-			
-			//disable the next button
-			
-			//handle radio button
-			$(':input').change(
+
+			var selectedProducts = "";
+
+			$('#question1').change(
 				function(){
-					//queryStr = buildQuery(["question5"]);
-					if ($('input:radio[name=question5]:checked').val()==0){					
-						showProduct(0);
-						hideProduct(1);
-						selectedProducts = "P0";
-					}else{
-						showProduct(1);
-						hideProduct(0);
-						selectedProducts = "P1";
+					//queryStr = buildQuery(["question1"]);
+					if ($( "#question1").val()){
+						selectedProducts = $("#question1" ).val() + ":";
 					}
-					$('#recommendationBox').addClass("done");
 				}	
 			);
 			$("#nextButton").click(
 				function (event){
 					event.preventDefault(); 
-					self.location = nextPage + "?" + buildProductsQuery(pageIndex,selectedProducts) + buildAnswersQuery(pageIndex) +  buildRevisitQuery();		
+					self.location = nextPage + "?products=" + selectedProducts;
 				}
 			);			
 		});	

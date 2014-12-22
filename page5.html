@@ -75,15 +75,14 @@
 	<script src="media/data/messages.js"></script>
 	<script>		
 		$(document).ready(function(){
-			pageId = "page5";
-			parseProducts();
-			for (var i= 0; i <productsByPage.length; i++){
-				var productsOfPage = productsByPage[i].split("P");
-				showPageTitle(productsOfPage[1]);
-				$.each(productsOfPage, function() {
-						showProduct(this);
-					});	
-			}	
+			var pageId = "page5";
+			var productsArr=parseProducts();
+			var product;
+			for (var i= 0; i <productsArr.length; i++){
+				var product = productsArr[i].split("P");
+				showProduct(product[1]);
+			}
+
 			$("#email_content").val($("#recommendation").html());
 			
 			//handle radio button
